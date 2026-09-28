@@ -1,0 +1,22 @@
+name: Project Checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  basic-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Basic check
+        run: echo "Basic check passed"
+
+  license-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for LICENSE file
+        run: test -f LICENSE
